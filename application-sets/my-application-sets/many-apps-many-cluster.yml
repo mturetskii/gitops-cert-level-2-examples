@@ -3,10 +3,6 @@ kind: ApplicationSet
 metadata:
   name: cluster-git
 spec:
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
   generators:
     # matrix 'parent' generator
     - matrix:
@@ -31,3 +27,7 @@ spec:
       destination:
         server: '{{server}}'
         namespace: '{{path.basename}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
